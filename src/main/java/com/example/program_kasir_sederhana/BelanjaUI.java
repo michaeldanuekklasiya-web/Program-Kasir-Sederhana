@@ -1,4 +1,4 @@
-package com.example.pemilihan_ketua_organisasi;
+package com.example.program_kasir_sederhana;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;

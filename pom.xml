@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>Pemilihan_Ketua_Organisasi</artifactId>
+    <artifactId>Program_Kasir_Sederhana</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Pemilihan Ketua Organisasi</name>
 
@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.pemilihan_ketua_organisasi/com.example.pemilihan_ketua_organisasi.HelloApplication
+                                com.example.pemilihan_ketua_organisasi/com.example.program_kasir_sederhana.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

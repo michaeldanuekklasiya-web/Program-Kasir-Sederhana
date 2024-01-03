@@ -3,6 +3,6 @@ module com.example.pemilihan_ketua_organisasi {
     requires javafx.fxml;
 
 
-    opens com.example.pemilihan_ketua_organisasi to javafx.fxml;
-    exports com.example.pemilihan_ketua_organisasi;
+    opens com.example.program_kasir_sederhana to javafx.fxml;
+    exports com.example.program_kasir_sederhana;
 }

@@ -1,4 +1,4 @@
-package com.example.pemilihan_ketua_organisasi;
+package com.example.program_kasir_sederhana;
 
 public interface ProsesTransaksi {
     void prosesTransaksi(Transaksi transaksi);

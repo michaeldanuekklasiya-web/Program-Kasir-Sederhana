@@ -1,4 +1,4 @@
-package com.example.pemilihan_ketua_organisasi;
+package com.example.program_kasir_sederhana;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

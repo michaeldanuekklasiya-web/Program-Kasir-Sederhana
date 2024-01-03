@@ -1,6 +1,4 @@
-package com.example.pemilihan_ketua_organisasi;
-import java.util.ArrayList;
-import java.util.List;
+package com.example.program_kasir_sederhana;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,9 +1,5 @@
-package com.example.pemilihan_ketua_organisasi;
+package com.example.program_kasir_sederhana;
 
-import com.example.pemilihan_ketua_organisasi.Inventaris;
-import com.example.pemilihan_ketua_organisasi.Kasir;
-import com.example.pemilihan_ketua_organisasi.Produk;
-import com.example.pemilihan_ketua_organisasi.Transaksi;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -106,7 +102,7 @@ public class MainApp extends Application {
             kembalianField.setVisible(true);
         });
 
-        VBox xroot = new VBox(20);
+        VBox root = new VBox(20);
         root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(20));
 
