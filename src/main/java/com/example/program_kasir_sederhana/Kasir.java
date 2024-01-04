@@ -11,7 +11,6 @@ public class Kasir {
 
     public void prosesTransaksi(Transaksi transaksi) {
         daftarTransaksi.add(transaksi);
-        // Tambahan logika kasir sesuai kebutuhan
     }
 
     public double hitungTotalBelanja() {

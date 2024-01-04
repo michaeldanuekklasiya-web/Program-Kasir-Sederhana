@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
 public class MainApp extends Application {
 
@@ -16,6 +18,11 @@ public class MainApp extends Application {
 
     private Inventaris inventaris;
     private Kasir kasir;
+
+    private TableView<Transaksi> historyTable;
+    private ObservableList<Transaksi> historyData;
+
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -49,6 +56,8 @@ public class MainApp extends Application {
         Label namaWarungLabel = new Label("Warung Michael");
         Button tombolMasuk = new Button("Masuk");
 
+        tombolMasuk.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-weight: bold;");
+
         VBox root = new VBox(20);
         root.setAlignment(Pos.CENTER);
         root.getChildren().addAll(namaWarungLabel, tombolMasuk);
@@ -57,6 +66,8 @@ public class MainApp extends Application {
 
         return new Scene(root, 300, 200);
     }
+
+
 
     private Scene buatBelanjaScene() {
         Label judulLabel = new Label("Hitung Belanjaan");
@@ -71,34 +82,28 @@ public class MainApp extends Application {
 
         Button tombolSelesai = new Button("Bayar");
 
-        // Mengatur style untuk judul dan tombol
+        tombolSelesai.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-weight: bold;");
+
         judulLabel.setStyle("-fx-font-size: 18; -fx-font-weight: bold");
-        tombolSelesai.setStyle("-fx-font-size: 14; -fx-font-weight: bold");
 
         tombolSelesai.setOnAction(e -> {
-            // Skenario: Tombol Bayar ditekan
             Produk produk = produkComboBox.getValue();
             int jumlahBarang = Integer.parseInt(jumlahField.getText());
 
-            // Menghitung total yang harus dibayar
             double totalBayar = produk.getHarga() * jumlahBarang;
             totalBayarField.setText(String.valueOf(totalBayar));
 
             kasir.prosesTransaksi(new Transaksi(produk, jumlahBarang));
 
-            // Menampilkan kembalian atau peringatan uang tidak cukup
             double jumlahUang = Double.parseDouble(jumlahUangField.getText());
             double kembalian = jumlahUang - totalBayar;
 
             if (kembalian >= 0) {
-                // Menampilkan kembalian pada kembalianField
                 kembalianField.setText("Kembalian: " + kembalian);
             } else {
-                // Menampilkan peringatan uang tidak cukup pada kembalianField
                 kembalianField.setText("Uang Tidak Cukup");
             }
 
-            // Menampilkan kembalianField setelah tombol "Bayar" ditekan
             kembalianField.setVisible(true);
         });
 
@@ -112,18 +117,13 @@ public class MainApp extends Application {
                 new Label("Jumlah Uang:"), jumlahUangField,
                 new Label("Kembalian:"), kembalianField, tombolSelesai);
 
-
-        // Mengatur agar harga satuan tidak dapat diedit
         hargaSatuanField.setEditable(false);
 
-        // Menambahkan listener saat pemilihan produk berubah
         produkComboBox.setOnAction(e -> {
             Produk produk = produkComboBox.getValue();
-            // Menampilkan harga satuan saat produk dipilih
             hargaSatuanField.setText(String.valueOf(produk.getHarga()));
         });
 
-        // Menambahkan listener untuk menghitung total setiap kali jumlah barang diubah
         jumlahField.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 int jumlahBarang = Integer.parseInt(newValue);
@@ -131,7 +131,6 @@ public class MainApp extends Application {
                 double totalBayar = hargaSatuan * jumlahBarang;
                 totalBayarField.setText(String.valueOf(totalBayar));
             } catch (NumberFormatException e) {
-                // Tangani jika input bukan angka
                 totalBayarField.clear();
             }
         });
